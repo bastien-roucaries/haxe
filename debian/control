@@ -1,0 +1,20 @@
+Source: haxe
+Section: devel
+Priority: optional
+Maintainer: Bastien Roucariès <roucaries.bastien+debian@gmail.com>
+Standards-Version: 3.9.4
+Build-Depends: debhelper (>= 9), ocaml, ocaml-best-compilers | ocaml-native-compilers, ocaml-findlib, libxml-light-ocaml-dev, camlp4 (>= 3.11), zlib1g-dev, neko (>= 1.8.1~)
+Vcs-Hg: http://anonscm.debian.org/hg/collab-maint/haxe
+Homepage: http://haxe.org
+
+Package: haxe
+Architecture: any
+Depends: neko (>= 1.8.1), ${shlibs:Depends}, ${misc:Depends}, ${ocaml:Depends}
+Description: Web-oriented universal programming language
+ Programming language similar to JavaScript, but with full-featured
+ static type system and generics.  The command-line compiler can
+ generate Flash SWF files for client-side use, Neko bytecode for
+ server-side use on Apache, or JavaScript/PHP using Browser DHTML API
+ to create AJAX web applications.
+ .
+ haXe was written by Nicolas Cannasse.

@@ -1,0 +1,30 @@
+#!/usr/bin/make -f
+# debian/rules for haXe.
+
+HAXELIB:= "extra/haxelib_src/"
+%:
+	dh $@
+
+override_dh_auto_configure:
+
+override_dh_auto_install:
+
+override_dh_install:
+	mkdir -p $(CURDIR)/debian/haxe/etc/bash_completion.d
+	cp debian/bash_completion $(CURDIR)/debian/haxe/etc/bash_completion.d/haxe
+	mkdir -p $(CURDIR)/debian/haxe/usr/bin
+	mkdir -p $(CURDIR)/debian/haxe/usr/lib
+	cp $(HAXELIB)/haxelib.sh $(CURDIR)/debian/haxe/usr/bin/haxelib
+	dh_install
+	rm -f $(CURDIR)/debian/haxe/usr/share/haxe/std/tools/haxelib/haxelib.sh
+
+override_dh_clean:
+	find $(CURDIR) -name '*.cmx' |xargs rm -f
+	find $(CURDIR) -name '*.cmo' |xargs rm -f
+	find $(CURDIR) -name '*.cma' |xargs rm -f
+	find $(CURDIR) -name '*.cmxa' |xargs rm -f
+	find $(CURDIR) -name '*.o' |xargs rm -f
+	find $(CURDIR) -name '*.a' |xargs rm -f
+	find $(CURDIR) -name '*.cmi' |xargs rm -f
+	[ ! -f $(CURDIR)/version.ml ] || rm -f "$(CURDIR)/version.ml"
+	dh_clean
