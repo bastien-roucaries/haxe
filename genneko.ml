@@ -752,8 +752,8 @@ let generate_libs_init = function
 						op "+" (call p (loadp "file_contents" 1) [op "+" (call p (ident p "@env") [str p "HOME"]) (str p "/.haxelib")]) (str p "/"),
 						"e",
 						(EIf (op "==" es (str p "Linux"),
-							str p "/usr/lib/haxe/lib/",
-							Some (str p "/usr/local/lib/haxe/lib/")
+							str p "/usr/share/haxe/lib/",
+							Some (str p "/usr/local/share/haxe/lib/")
 						),p)
 					),p)
 				),p);

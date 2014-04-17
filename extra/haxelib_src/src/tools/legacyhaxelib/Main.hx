@@ -560,7 +560,7 @@ class Main {
 			sys.io.File.getContent("/etc/.haxelib")
 		catch( e : Dynamic ) {
 			if( setup ) {
-				(win ? haxepath : "/usr/lib/haxe/")+REPNAME;
+				(win ? haxepath : "/usr/share/haxe/")+REPNAME;
 			} else if( win ) {
 				// Windows have a default directory (no need for setup)
 				if( haxepath == null )
